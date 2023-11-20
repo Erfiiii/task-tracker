@@ -1,5 +1,13 @@
 {
-    "header": {
-        "title": "Task Tracker"
-    }
+  "header": {
+    "title": "Task Tracker"
+  },
+  "tasks": {
+    "title": "Tasks"
+  },
+  "status": {
+    "completed": "Done",
+    "in_progress": "In Progress",
+    "pending": "To Do"
+  }
 }
