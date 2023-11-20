@@ -11,36 +11,12 @@ function changeLanguage(e: Event) {
 </script>
 
 <template>
-  <header class="header">
-    <h1 class="header__title">{{ $t('header.title') }}</h1>
-    <select class="header__language" placeholder="" :value="lang" @change="changeLanguage">
+  <header class="fixed bg-white flex z-20 right-0 left-0 w-full border-b-2 justify-between p-6 align-middle">
+    <h1 class="text-3xl font-bold">{{ $t('header.title') }}</h1>
+    <select :value="lang" @change="changeLanguage">
       <option :key="item" v-for="item in languages" :value="languageDetails[item].value">
         {{ languageDetails[item].label }}
       </option>
     </select>
   </header>
 </template>
-
-<style scoped>
-.header {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 24px;
-  background-color: #fff;
-  border-bottom: 1px solid #efefef;
-}
-
-.header__title {
-  font-weight: 600;
-}
-
-.header__language {
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-</style>

@@ -6,8 +6,10 @@
     "title": "Tasks",
     "add_task": "Add Task"
   },
-  "task_card": {
-    "delete": "Delete"
+  "task": {
+    "delete": "Delete",
+    "created_at": "Created at",
+    "due_date": "Due date"
   },
   "status": {
     "completed": "Done",

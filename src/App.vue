@@ -4,14 +4,11 @@ import Header from '@/components/Header.vue'
 </script>
 
 <template>
-  <Header />
-  <div class="container">
-    <RouterView />
+  <div class="flex flex-col min-h-screen font-Roboto bg-slate-100">
+    <Header />
+    <div class="mt-28 px-20">
+      <RouterView />
+    </div>
   </div>
 </template>
 
-<style scoped>
-.container {
-  margin-top: 80px;
-}
-</style>

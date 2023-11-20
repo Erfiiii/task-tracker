@@ -25,12 +25,14 @@ const loadTasks = async () => {
 </script>
 
 <template>
-  <div class="tasks__header">
-    <h1>{{ $t('tasks.title') }}</h1>
-    <button class="add-task" @click="openModal">{{ $t('tasks.add_task') }}</button>
+  <div class="flex justify-between">
+    <h1 class="text-xl font-semibold">{{ $t('tasks.title') }}</h1>
+    <button class="bg-cyan-700 text-white text-sm p-2 rounded" @click="openModal">
+      {{ $t('tasks.add_task') }}
+    </button>
   </div>
-  <div class="tasks__container">
-    <div class="tasks">
+  <div class="flex justify-center align-middle">
+    <div class="mt-4 flex-col flex tasks">
       <task-card v-for="task in tasks" :key="task.id" :task="task" @delete="loadTasks"></task-card>
     </div>
   </div>
@@ -38,25 +40,7 @@ const loadTasks = async () => {
 </template>
 
 <style scoped>
-.tasks__header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.add-task {
-  background-color: #2563dc;
-}
-.tasks__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .tasks {
-  margin-top: 16px auto;
-  padding: 8px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   max-width: 700px;
 }
 </style>

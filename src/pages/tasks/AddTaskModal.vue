@@ -18,7 +18,6 @@ const title = ref<string>('')
 const description = ref<string>('')
 const dueDate = ref<string>(new Date().toISOString().slice(0, 10))
 
-
 const client = inject<ClientType>('client')
 
 const saveTask = async () => {
@@ -31,41 +30,43 @@ const saveTask = async () => {
 <template>
   <modal title="Create Task" :modal-active="modalActive" @save="saveTask" @close="emit('close')">
     <form>
-      <label for="fname">Title</label>
-      <input class="input" id="fname" type="text" v-model="title" />
-      <label for="lname">Due Date</label>
-      <input
-        class="input"
-        id="lname"
-        type="date"
-        :min="new Date().toISOString().slice(0, 10)"
-        v-model="dueDate"
-      />
-      <label for="description">Description</label>
-      <textarea
-        name="description"
-        id="description"
-        cols="30"
-        rows="10"
-        v-model="description"
-      ></textarea>
+      <label class="block my-4">
+        <span class="text-grey-700">Title</span>
+        <input
+          placeholder="Title of the task..."
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          type="text"
+          v-model="title"
+        />
+      </label>
+      <label class="block my-4">
+        <span class="text-grey-700">Due date</span>
+        <input
+          placeholder="When should you finish the task?..."
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          type="date"
+          :min="new Date().toISOString().slice(0, 10)"
+          v-model="dueDate"
+        />
+      </label>
+      <label class="block my-4">
+        <span class="text-grey-700">Description</span>
+        <textarea
+          placeholder="Say some words about the task..."
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          type="date"
+          rows="4"
+          v-model="description"
+        />
+      </label>
     </form>
     <template #footer>
-      <button @click="saveTask">Save</button>
-      <button @click="emit('close')">Close</button>
+      <button class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded" @click="saveTask">
+        Save
+      </button>
+      <button class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded" @click="emit('close')">
+        Close
+      </button>
     </template>
   </modal>
 </template>
-
-
-<style scoped>
-
-button {
-  margin: 8px;
-  padding: 8px;
-  border: none;
-  background-color: #2563dc;
-  cursor: pointer;
-}
-
-</style>

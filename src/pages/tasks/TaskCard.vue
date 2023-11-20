@@ -24,57 +24,24 @@ const deleteTask = async () => {
 </script>
 
 <template>
-  <div class="task">
-    <div class="task__title">
+  <div class="m-1 p-4 border-2 border-solid bg-white border-gray-200 rounded-lg">
+    <div class="flex mb-2 justify-between">
       <div>
-        <h1 class="task__title-text">{{ task.title }}</h1>
-        <span class="task__sub-title">
-          Created at: <date-output :value="new Date(task.createdAt)"></date-output>
+        <h1 class="font-bold text-lg">{{ task.title }}</h1>
+        <span class="text-xs font-semibold block my-2">
+          {{ $t('task.created_at') }}: <date-output :value="new Date(task.createdAt)"></date-output>
         </span>
-        <span class="task__sub-title">
-          Due date: <date-output :value="new Date(task.dueDate)"></date-output>
+        <span class="text-xs font-semibold block my-2">
+          {{ $t('task.due_date') }}: <date-output :value="new Date(task.dueDate)"></date-output>
         </span>
       </div>
       <div>
-        <status-output :value="task.status"></status-output>
-        <button @click="deleteTask" class="delete-task">{{ $t("task_card.delete") }}</button>
+        <status-output class="mr-2" :value="task.status"></status-output>
+        <button @click="deleteTask" class="text-xs text-red-400 underline">
+          {{ $t('task.delete') }}
+        </button>
       </div>
     </div>
-    <p>{{ task.description }}</p>
+    <p class="font-light">{{ task.description }}</p>
   </div>
 </template>
-
-<style scoped>
-.task {
-  margin: 8px;
-  padding: 16px;
-  border: 1px solid #cad9f6;
-  border-radius: 6px;
-  background-color: #fff;
-}
-
-.task__title {
-  display: flex;
-  margin-bottom: 16px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.task__title-text {
-  width: 100%;
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.task__sub-title {
-  width: 100%;
-  display: 'block';
-  font-size: 12px;
-}
-
-.delete-task {
-  color: red;
-  font-size: 12;
-  text-decoration: underline;
-}
-</style>

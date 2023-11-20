@@ -9,12 +9,5 @@ const text = formatDate(new Date(props.value))
 </script>
 
 <template>
-  <span class="date">{{ text }}</span>
+  <span class="text-xs font-mono font-light">{{ text }}</span>
 </template>
-
-<style scoped>
-.date {
-    font-size: 12px;
-    font-weight: 600;
-}
-</style>

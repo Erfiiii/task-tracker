@@ -11,19 +11,9 @@ const statusDetail = statusDetails[props.value]
 
 <template>
   <code
-    class="status"
+    class="rounded-2xl text-xs font-extralight p-2 text-center"
     :style="{ color: statusDetail.color, backgroundColor: statusDetail.backgroundColor }"
   >
     {{ statusDetail.label }}
   </code>
 </template>
-
-<style scoped>
-.status {
-  min-width: 60px;
-  text-align: center;
-  font-size: 10px;
-  padding: 8px;
-  border-radius: 16px;
-}
-</style>
