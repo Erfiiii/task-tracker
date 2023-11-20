@@ -3,7 +3,7 @@ import type { ClientType } from './types'
 
 export const clientProvider = {
   install: (app: App, options: ClientType) => {
-    app.provide('client', options)
+    app.provide<ClientType>('client', options)
   }
 }
 

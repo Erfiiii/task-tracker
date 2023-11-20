@@ -3,7 +3,11 @@
     "title": "Aufgabe Tracker"
   },
   "tasks": {
-    "title": "Aufgaben"
+    "title": "Aufgaben",
+    "add_task": "Aufgabe hinzufügen"
+  },
+  "task_card": {
+    "delete": "Delete"
   },
   "status": {
     "completed": "Erledigt",

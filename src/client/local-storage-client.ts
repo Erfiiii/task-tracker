@@ -35,7 +35,7 @@ const addTask = async (title: string, description: string, dueDate: Date) => {
 
 const deleteTask = async (id: string) => {
   const tasks = await getItemFromLocalStorage<Task[]>('tasks', [])
-  const filteredTasks = tasks.filter((task) => task.id === id)
+  const filteredTasks = tasks.filter((task) => task.id !== id)
   await addItemToLocalStorage('tasks', filteredTasks)
 }
 

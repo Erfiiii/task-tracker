@@ -12,7 +12,7 @@ export interface Task {
 export interface ClientType {
   getTasks: () => Promise<Task[]>
   getTask: (id: string) => Promise<Task | undefined>
-  addTask: (id: string, description: string, dueDate: Date) => Promise<void>
+  addTask: (title: string, description: string, dueDate: Date) => Promise<void>
   changeTaskStatus: (id: string, status: TaskStatus) => Promise<void>
   deleteTask: (is: string) => Promise<void>
 }

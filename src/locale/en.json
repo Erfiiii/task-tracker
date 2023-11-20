@@ -3,7 +3,11 @@
     "title": "Task Tracker"
   },
   "tasks": {
-    "title": "Tasks"
+    "title": "Tasks",
+    "add_task": "Add Task"
+  },
+  "task_card": {
+    "delete": "Delete"
   },
   "status": {
     "completed": "Done",
