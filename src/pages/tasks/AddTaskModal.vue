@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Modal from '@/components/Modal.vue'
-import { inject, ref } from 'vue'
-import type { ClientType } from '@/client/types'
+import { ref } from 'vue'
+import { useClient } from '@/client'
 
 interface Props {
   modalActive: boolean
@@ -17,13 +17,12 @@ const emit = defineEmits<Emits>()
 const title = ref<string>('')
 const description = ref<string>('')
 const dueDate = ref<string>(new Date().toISOString().slice(0, 10))
-
-const client = inject<ClientType>('client')
+const { addTask } = useClient()
 
 const saveTask = async () => {
-  await client?.addTask(title.value, description.value, new Date(dueDate.value))
-  emit('close')
+  await addTask(title.value, description.value, new Date(dueDate.value))
   emit('add')
+  emit('close')
 }
 </script>
 

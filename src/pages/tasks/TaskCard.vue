@@ -1,25 +1,23 @@
 <script setup lang="ts">
 import StatusOutput from '@/components/status/StatusOutput.vue'
 import DateOutput from '@/components/date/DateOutput.vue'
-import type { Task, ClientType } from '@/client/types.ts'
-import { inject } from 'vue'
+import type { Task } from '@/client/types.ts'
 import { RouterLink } from 'vue-router'
+import { useClient } from '@/client'
 
 interface Props {
   task: Task
 }
-
 interface Emits {
   (e: 'delete', id: string): void
 }
 
 const { task } = defineProps<Props>()
 const emit = defineEmits<Emits>()
+const { deleteTask } = useClient()
 
-const client = inject<ClientType>('client')
-
-const deleteTask = async () => {
-  await client?.deleteTask(task.id)
+const onDeleteTask = async () => {
+  await deleteTask(task.id)
   emit('delete', task.id)
 }
 </script>
@@ -40,7 +38,7 @@ const deleteTask = async () => {
       </div>
       <div>
         <status-output class="mr-2" :value="task.status"></status-output>
-        <button @click="deleteTask" class="text-xs text-red-400 underline">
+        <button @click="onDeleteTask" class="text-xs text-red-400 underline">
           {{ $t('task.delete') }}
         </button>
       </div>

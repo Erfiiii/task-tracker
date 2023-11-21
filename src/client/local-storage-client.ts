@@ -51,7 +51,7 @@ const changeTaskStatus = async (id: string, status: TaskStatus) => {
 }
 
 
-export const client = {
+export const localStorageClient = {
     getTasks,
     getTask,
     addTask,

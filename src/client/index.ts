@@ -7,4 +7,5 @@ export const clientProvider = {
   }
 }
 
-export { client } from './local-storage-client'
+export { localStorageClient } from './local-storage-client'
+export { useClient } from './useClient'

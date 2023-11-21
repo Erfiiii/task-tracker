@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import TaskCard from './TaskCard.vue'
-import type { ClientType, Task } from '@/client/types'
+import type { Task } from '@/client/types'
 import { ref } from 'vue'
 import AddTaskModal from './AddTaskModal.vue'
-import { inject } from 'vue'
 import { onMounted } from 'vue'
+import { useClient } from '@/client'
 
 const modalActive = ref<boolean>(false)
-const client = inject<ClientType>('client')
 const tasks = ref<Task[]>([])
+const { getTasks } = useClient()
 
 onMounted(async () => {
   await loadTasks()
@@ -17,7 +17,7 @@ const closeModal = () => {
   modalActive.value = false
 }
 const loadTasks = async () => {
-  tasks.value = (await client?.getTasks()) ?? []
+  tasks.value = await getTasks()
 }
 </script>
 
