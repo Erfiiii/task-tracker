@@ -13,9 +13,6 @@ const tasks = ref<Task[]>([])
 onMounted(async () => {
   await loadTasks()
 })
-const openModal = () => {
-  modalActive.value = true
-}
 const closeModal = () => {
   modalActive.value = false
 }
@@ -27,7 +24,7 @@ const loadTasks = async () => {
 <template>
   <div class="flex justify-between">
     <h1 class="text-xl font-semibold">{{ $t('tasks.title') }}</h1>
-    <button class="bg-cyan-700 text-white text-sm p-2 rounded" @click="openModal">
+    <button class="bg-cyan-700 text-white text-sm p-2 rounded" @click="modalActive = true">
       {{ $t('tasks.add_task') }}
     </button>
   </div>
