@@ -30,7 +30,7 @@ const saveTask = async () => {
   <modal title="Create Task" :modal-active="modalActive" @save="saveTask" @close="emit('close')">
     <form>
       <label class="block my-4">
-        <span class="text-grey-700">Title</span>
+        <span class="text-grey-700">{{ $t('task.title') }}</span>
         <input
           placeholder="Title of the task..."
           class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
@@ -39,7 +39,7 @@ const saveTask = async () => {
         />
       </label>
       <label class="block my-4">
-        <span class="text-grey-700">Due date</span>
+        <span class="text-grey-700">{{ $t('task.due_date') }}</span>
         <input
           placeholder="When should you finish the task?..."
           class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
@@ -49,7 +49,7 @@ const saveTask = async () => {
         />
       </label>
       <label class="block my-4">
-        <span class="text-grey-700">Description</span>
+        <span class="text-grey-700">{{ $t('task.description') }}</span>
         <textarea
           placeholder="Say some words about the task..."
           class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
@@ -61,10 +61,10 @@ const saveTask = async () => {
     </form>
     <template #footer>
       <button class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded" @click="saveTask">
-        Save
+        {{ $t('task.save') }}
       </button>
       <button class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded" @click="emit('close')">
-        Close
+        {{ $t('task.close') }}
       </button>
     </template>
   </modal>

@@ -7,9 +7,14 @@
     "add_task": "Add Task"
   },
   "task": {
+    "title": "Title",
+    "description": "Description",
     "delete": "Delete",
     "created_at": "Created at",
-    "due_date": "Due date"
+    "due_date": "Due date",
+    "save": "Save",
+    "back": "Back",
+    "close": "Close"
   },
   "status": {
     "completed": "Done",

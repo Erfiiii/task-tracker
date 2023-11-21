@@ -12,7 +12,6 @@ const route = useRoute()
 const router = useRouter()
 const { changeTaskStatus, getTask } = useClient()
 
-
 onMounted(async () => {
   task.value = await getTask(route.params.id as string)
 })
@@ -30,12 +29,14 @@ const saveTask = async () => {
     <h1 class="text-xl font-bold my-6">{{ task?.title }}</h1>
     <p class="text-sm font-light my-6">{{ task?.description }}</p>
     <div class="flex flex-wrap">
-      <span class="w-1/2 font-extralight text-xs"
-        >Created at: <date-output class="ml-4" :value="task?.createdAt"></date-output
-      ></span>
-      <span class="w-1/2 font-extralight text-xs"
-        >Due date: <date-output class="ml-4" :value="task?.dueDate"></date-output
-      ></span>
+      <span class="w-1/2 font-extralight text-xs">
+        {{ $t('task.created_at') }}:
+        <date-output class="ml-4" :value="new Date(task.createdAt)"></date-output>
+      </span>
+      <span class="w-1/2 font-extralight text-xs">
+        {{ $t('task.due_date') }}:
+        <date-output class="ml-4" :value="new Date(task.dueDate)"></date-output>
+      </span>
       <span class="w-1/2 font-extralight text-xs">
         {{ $t('task.status') }}
         <select
@@ -53,13 +54,13 @@ const saveTask = async () => {
         class="m-1 px-4 py-2 text-sm disabled:bg-slate-400 bg-cyan-600 text-white rounded"
         @click="saveTask"
       >
-        Save
+        {{ $t('task.save') }}
       </button>
       <router-link
         :to="{ name: 'tasks' }"
         class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded"
       >
-        Cancel
+        {{ $t('task.back') }}
       </router-link>
     </div>
   </div>

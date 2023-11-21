@@ -26,8 +26,11 @@ const onDeleteTask = async () => {
   <div class="m-1 p-4 border-2 border-solid bg-white border-gray-200 rounded-lg">
     <div class="flex mb-2 justify-between">
       <div>
-        <router-link :to="{ name: 'task', params: { id: task.id } }">
-          <h1 class="font-bold text-lg cursor-pointer">{{ task.title }}</h1>
+        <router-link
+          class="font-bold text-lg cursor-pointer"
+          :to="{ name: 'task', params: { id: task.id } }"
+        >
+          {{ task.title }}
         </router-link>
         <span class="text-xs font-semibold block my-2">
           {{ $t('task.created_at') }}: <date-output :value="new Date(task.createdAt)"></date-output>

@@ -6,8 +6,15 @@
     "title": "Aufgaben",
     "add_task": "Aufgabe hinzufügen"
   },
-  "task_card": {
-    "delete": "Delete"
+  "task": {
+    "title": "Titel",
+    "description": "Beschreibung",
+    "delete": "Löschen",
+    "created_at": "Erstellt am",
+    "due_date": "Fälligkeitsdatum",
+    "save": "Sparen",
+    "back": "Zurückgehen",
+    "close": "Schließen"
   },
   "status": {
     "completed": "Erledigt",
