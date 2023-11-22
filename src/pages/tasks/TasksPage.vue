@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import TaskCard from './TaskCard.vue'
-import type { Task, FilterType, SortType } from '@/client/types'
-import { ref } from 'vue'
-import AddTaskModal from './AddTaskModal.vue'
-import { onMounted } from 'vue'
+import { ref, onMounted,watch  } from 'vue'
 import { useClient } from '@/client'
-import { watch } from 'vue'
+import type { Task, FilterType, SortType } from '@/client/types'
+import TaskCard from './TaskCard.vue'
+import AddTaskModal from './AddTaskModal.vue'
 import StatusFilter from './filters/StatusFilter.vue'
 import TasksSort from './sort/TasksSort.vue'
 

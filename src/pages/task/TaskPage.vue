@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import type { Task } from '@/client/types.ts'
-import { ref } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import DateOutput from '@/components/date/DateOutput.vue'
 import { statusDetails } from '@/components/status'

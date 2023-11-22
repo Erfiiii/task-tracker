@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import Modal from '@/components/Modal.vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useClient } from '@/client'
-import { computed } from 'vue'
 
 interface Props {
   modalActive: boolean
