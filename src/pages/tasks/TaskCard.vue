@@ -23,19 +23,19 @@ const onDeleteTask = async () => {
 </script>
 
 <template>
-  <div class="m-1 p-4 min-w-max border-2 border-solid bg-white border-gray-200 rounded-lg">
-    <div class="flex mb-2 justify-between">
+  <div class="m-1 min-w-max rounded-lg border-2 border-solid border-gray-200 bg-white p-4">
+    <div class="mb-2 flex justify-between">
       <div>
         <router-link
-          class="font-bold text-lg cursor-pointer"
+          class="cursor-pointer text-lg font-bold"
           :to="{ name: 'task', params: { id: task.id } }"
         >
           {{ task.title }}
         </router-link>
-        <span class="text-xs font-semibold block my-2">
+        <span class="my-2 block text-xs font-semibold">
           {{ $t('task.created_at') }}: <date-output :value="new Date(task.createdAt)"></date-output>
         </span>
-        <span class="text-xs font-semibold block my-2">
+        <span class="my-2 block text-xs font-semibold">
           {{ $t('task.due_date') }}: <date-output :value="new Date(task.dueDate)"></date-output>
         </span>
       </div>
@@ -46,7 +46,7 @@ const onDeleteTask = async () => {
         </button>
       </div>
     </div>
-    <p class="font-light" v-if="task.description">{{ task.description}}</p>
+    <p class="font-light" v-if="task.description">{{ task.description }}</p>
     <p v-else class="font-extralight">No description...</p>
   </div>
 </template>

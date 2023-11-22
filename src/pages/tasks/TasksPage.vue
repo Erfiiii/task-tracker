@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted,watch  } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useClient } from '@/client'
 import type { Task, FilterType, SortType } from '@/client/types'
 import TaskCard from './TaskCard.vue'
@@ -27,11 +27,11 @@ const loadTasks = async () => (tasks.value = await getTasks(filter.value, sort.v
     <h1 class="text-xl font-semibold">{{ $t('tasks.title') }}</h1>
     <status-filter v-model="filter"></status-filter>
     <tasks-sort v-model="sort"></tasks-sort>
-    <button class="bg-cyan-700 text-white text-sm p-2 rounded" @click="modalActive = true">
+    <button class="rounded bg-cyan-700 p-2 text-sm text-white" @click="modalActive = true">
       {{ $t('tasks.add_task') }}
     </button>
   </div>
-  <div class="tasks mx-auto flex flex-col justify-center m-4" v-if="tasks.length">
+  <div class="tasks m-4 mx-auto flex flex-col justify-center" v-if="tasks.length">
     <task-card v-for="task in tasks" :key="task.id" :task="task" @delete="loadTasks"></task-card>
   </div>
   <p v-else class="font-extralight">{{ $t('tasks.no_task') }}</p>

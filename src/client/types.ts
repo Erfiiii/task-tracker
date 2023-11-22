@@ -11,7 +11,7 @@ export interface Task {
 
 export type FilterType = 'ALL' | TaskStatus
 
-export type SortType = 'createdAt' | 'dueDate' | 'title' 
+export type SortType = 'createdAt' | 'dueDate' | 'title'
 
 export interface ClientType {
   getTasks: (filter?: FilterType, sort?: SortType) => Promise<Task[]>

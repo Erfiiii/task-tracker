@@ -1,2 +1,2 @@
-export type { StatusDetail } from './types';
-export { statusDetails } from './utils';
+export type { StatusDetail } from './types'
+export { statusDetails } from './utils'

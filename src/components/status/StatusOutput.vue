@@ -11,7 +11,7 @@ const statusDetail = statusDetails[props.value]
 
 <template>
   <code
-    class="rounded-2xl text-xs font-extralight p-2 text-center"
+    class="rounded-2xl p-2 text-center text-xs font-extralight"
     :style="{ color: statusDetail.color, backgroundColor: statusDetail.backgroundColor }"
   >
     {{ statusDetail.label }}

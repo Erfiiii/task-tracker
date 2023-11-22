@@ -1,4 +1,4 @@
-import type { TaskStatus } from "@/client/types"
+import type { TaskStatus } from '@/client/types'
 
 export interface StatusDetail {
   value: TaskStatus

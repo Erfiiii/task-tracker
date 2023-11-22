@@ -25,22 +25,22 @@ const saveTask = async () => {
 
 <template>
   <div v-if="task">
-    <h1 class="text-xl font-bold my-6">{{ task.title }}</h1>
-    <p class="text-sm font-light my-6" v-if="task.description">{{ task.description }}</p>
-    <p v-else class="font-extralight my-6">{{ $t('task.no_description') }}</p>
+    <h1 class="my-6 text-xl font-bold">{{ task.title }}</h1>
+    <p class="my-6 text-sm font-light" v-if="task.description">{{ task.description }}</p>
+    <p v-else class="my-6 font-extralight">{{ $t('task.no_description') }}</p>
     <div class="flex flex-wrap">
-      <span class="w-1/2 font-extralight text-xs">
+      <span class="w-1/2 text-xs font-extralight">
         {{ $t('task.created_at') }}:
         <date-output class="ml-4" :value="new Date(task.createdAt)"></date-output>
       </span>
-      <span class="w-1/2 font-extralight text-xs">
+      <span class="w-1/2 text-xs font-extralight">
         {{ $t('task.due_date') }}:
         <date-output class="ml-4" :value="new Date(task.dueDate)"></date-output>
       </span>
-      <span class="w-1/2 font-extralight text-xs">
+      <span class="w-1/2 text-xs font-extralight">
         {{ $t('task.status') }}
         <select
-          class="mt-4 ml-4 bg-inherit border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+          class="ml-4 mt-4 border-0 border-b-2 border-gray-200 bg-inherit focus:border-black focus:ring-0"
           v-model="task.status"
         >
           <option v-for="item in statusDetails" :key="item.value" :value="item.value">
@@ -51,14 +51,14 @@ const saveTask = async () => {
     </div>
     <div class="flex flex-row-reverse">
       <button
-        class="m-1 px-4 py-2 text-sm disabled:bg-slate-400 bg-cyan-600 text-white rounded"
+        class="m-1 rounded bg-cyan-600 px-4 py-2 text-sm text-white disabled:bg-slate-400"
         @click="saveTask"
       >
         {{ $t('task.save') }}
       </button>
       <router-link
         :to="{ name: 'tasks' }"
-        class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded"
+        class="m-1 rounded bg-cyan-600 px-4 py-2 text-sm text-white"
       >
         {{ $t('task.back') }}
       </router-link>

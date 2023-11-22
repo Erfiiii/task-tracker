@@ -22,7 +22,7 @@ const onChange = (e: Event) => {
 <template>
   <span>
     {{ $t('tasks.sort_by') }}:
-    <select class="border-none rounded-md" :value="props.modelValue" @change="onChange">
+    <select class="rounded-md border-none" :value="props.modelValue" @change="onChange">
       <option v-for="item in sortValues" :key="item.value" :value="item.value">
         {{ item.label }}
       </option>
