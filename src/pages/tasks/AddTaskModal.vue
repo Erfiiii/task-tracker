@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Modal from '@/components/Modal.vue'
+import CustomModal from '@/components/CustomModal.vue'
 import { ref, computed } from 'vue'
 import { useClient } from '@/client'
 
@@ -31,7 +31,7 @@ const saveTask = async () => {
 </script>
 
 <template>
-  <modal title="Create Task" :modal-active="modalActive" @save="saveTask" @close="emit('close')">
+  <custom-modal title="Create Task" :modal-active="modalActive" @save="saveTask" @close="emit('close')">
     <form>
       <label class="my-4 block">
         <span class="text-grey-700">{{ $t('task.title') }}</span>
@@ -75,5 +75,5 @@ const saveTask = async () => {
         {{ $t('task.close') }}
       </button>
     </template>
-  </modal>
+  </custom-modal>
 </template>
