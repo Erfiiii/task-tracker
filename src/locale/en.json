@@ -4,7 +4,10 @@
   },
   "tasks": {
     "title": "Tasks",
-    "add_task": "Add Task"
+    "add_task": "Add Task",
+    "filter_by": "Filter by",
+    "sort_by": "Sort by",
+    "no_task": "No Tasks..."
   },
   "task": {
     "title": "Title",
@@ -14,11 +17,15 @@
     "due_date": "Due date",
     "save": "Save",
     "back": "Back",
-    "close": "Close"
+    "close": "Close",
+    "no_description": "No description..."
   },
   "status": {
     "completed": "Done",
     "in_progress": "In Progress",
     "pending": "To Do"
+  },
+  "filters": {
+    "all": "All"
   }
 }

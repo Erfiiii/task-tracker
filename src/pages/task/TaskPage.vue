@@ -26,8 +26,9 @@ const saveTask = async () => {
 
 <template>
   <div v-if="task">
-    <h1 class="text-xl font-bold my-6">{{ task?.title }}</h1>
-    <p class="text-sm font-light my-6">{{ task?.description }}</p>
+    <h1 class="text-xl font-bold my-6">{{ task.title }}</h1>
+    <p class="text-sm font-light my-6" v-if="task.description">{{ task.description }}</p>
+    <p v-else class="font-extralight my-6">{{ $t('task.no_description') }}</p>
     <div class="flex flex-wrap">
       <span class="w-1/2 font-extralight text-xs">
         {{ $t('task.created_at') }}:

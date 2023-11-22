@@ -4,7 +4,10 @@
   },
   "tasks": {
     "title": "Aufgaben",
-    "add_task": "Aufgabe hinzufügen"
+    "add_task": "Aufgabe hinzufügen",
+    "filter_by": "Filtern nach",
+    "sort_by": "Sortieren nach",
+    "no_task": "keine Aufgaben..."
   },
   "task": {
     "title": "Titel",
@@ -14,11 +17,15 @@
     "due_date": "Fälligkeitsdatum",
     "save": "Sparen",
     "back": "Zurückgehen",
-    "close": "Schließen"
+    "close": "Schließen",
+    "no_description": "Keine Beschreibung..."
   },
   "status": {
     "completed": "Erledigt",
     "in_progress": "In Arbeit",
     "pending": "Zu tun"
+  },
+  "filters": {
+    "all": "Alle"
   }
 }

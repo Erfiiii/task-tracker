@@ -2,6 +2,7 @@
 import Modal from '@/components/Modal.vue'
 import { ref } from 'vue'
 import { useClient } from '@/client'
+import { computed } from 'vue'
 
 interface Props {
   modalActive: boolean
@@ -18,6 +19,10 @@ const title = ref<string>('')
 const description = ref<string>('')
 const dueDate = ref<string>(new Date().toISOString().slice(0, 10))
 const { addTask } = useClient()
+
+const isButtonDisabled = computed(() => {
+  return !title.value || !dueDate.value
+})
 
 const saveTask = async () => {
   await addTask(title.value, description.value, new Date(dueDate.value))
@@ -60,7 +65,11 @@ const saveTask = async () => {
       </label>
     </form>
     <template #footer>
-      <button class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded" @click="saveTask">
+      <button
+        :disabled="isButtonDisabled"
+        class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded disabled:bg-slate-500 disabled:opacity-50"
+        @click="saveTask"
+      >
         {{ $t('task.save') }}
       </button>
       <button class="m-1 px-4 py-2 text-sm bg-cyan-600 text-white rounded" @click="emit('close')">

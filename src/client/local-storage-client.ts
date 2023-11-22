@@ -1,4 +1,4 @@
-import type { Task, TaskStatus } from './types'
+import type { FilterType, SortType, Task, TaskStatus } from './types'
 
 const getItemFromLocalStorage = async <T>(key: string, defaultValue: T) => {
   const item = localStorage.getItem(key)
@@ -9,9 +9,17 @@ const addItemToLocalStorage = async <T>(key: string, value: T) => {
   localStorage.setItem(key, JSON.stringify(value))
 }
 
-const getTasks = async () => {
+const sortFn = (data: Task[], sortOption: SortType): Task[] => {
+  if (sortOption === 'title') {
+    return data.sort((a, b) => a.title.localeCompare(b.title))
+  }
+  return data.sort((a, b) => new Date(a[sortOption]).getTime() - new Date(b[sortOption]).getTime())
+}
+
+const getTasks = async (filter?: FilterType, sort?: SortType) => {
   const tasks = await getItemFromLocalStorage<Task[]>('tasks', [])
-  return tasks
+  const filteredTasks = filter === 'ALL' ? tasks : tasks.filter((item) => item.status === filter)
+  return sort ? sortFn(filteredTasks, sort) : filteredTasks
 }
 
 const getTask = async (id: string) => {
@@ -50,11 +58,10 @@ const changeTaskStatus = async (id: string, status: TaskStatus) => {
   await addItemToLocalStorage<Task[]>('tasks', tasks)
 }
 
-
 export const localStorageClient = {
-    getTasks,
-    getTask,
-    addTask,
-    changeTaskStatus,
-    deleteTask,
+  getTasks,
+  getTask,
+  addTask,
+  changeTaskStatus,
+  deleteTask
 }
