@@ -20,6 +20,11 @@
     "close": "Close",
     "no_description": "No description..."
   },
+  "add_task": {
+    "title_placeholder": "Title of the task...",
+    "due_date_placeholder": "When should you finish the task?...",
+    "description_placeholder": "Say some words about the task..."
+  },
   "status": {
     "completed": "Done",
     "in_progress": "In Progress",

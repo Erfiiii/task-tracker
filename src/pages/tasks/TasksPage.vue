@@ -15,15 +15,13 @@ const filter = ref<FilterType>('ALL')
 const sort = ref<SortType>('createdAt')
 const { getTasks } = useClient()
 
-watch(filter, async () => await loadTasks())
-watch(sort, async () => await loadTasks())
+watch([filter, sort], async () => await loadTasks())
 
 onMounted(async () => await loadTasks())
 
 const closeModal = () => (modalActive.value = false)
 
 const loadTasks = async () => (tasks.value = await getTasks(filter.value, sort.value))
-
 </script>
 
 <template>
@@ -35,11 +33,15 @@ const loadTasks = async () => (tasks.value = await getTasks(filter.value, sort.v
       {{ $t('tasks.add_task') }}
     </button>
   </div>
-  <div class="flex justify-center mt-4">
-    <div class="mt-4 flex-col flex" v-if="tasks.length">
-      <task-card v-for="task in tasks" :key="task.id" :task="task" @delete="loadTasks"></task-card>
-    </div>
-    <p v-else class="font-extralight">{{ $t('tasks.no_task') }}</p>
+  <div class="tasks mx-auto flex flex-col justify-center m-4" v-if="tasks.length">
+    <task-card v-for="task in tasks" :key="task.id" :task="task" @delete="loadTasks"></task-card>
   </div>
+  <p v-else class="font-extralight">{{ $t('tasks.no_task') }}</p>
   <add-task-modal :modalActive="modalActive" @close="closeModal" @add="loadTasks"></add-task-modal>
 </template>
+
+<style scoped>
+.tasks {
+  max-width: 700px;
+}
+</style>

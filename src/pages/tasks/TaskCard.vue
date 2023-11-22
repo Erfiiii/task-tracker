@@ -23,7 +23,7 @@ const onDeleteTask = async () => {
 </script>
 
 <template>
-  <div class="task m-1 p-4 min-w-max border-2 border-solid bg-white border-gray-200 rounded-lg">
+  <div class="m-1 p-4 min-w-max border-2 border-solid bg-white border-gray-200 rounded-lg">
     <div class="flex mb-2 justify-between">
       <div>
         <router-link
@@ -50,9 +50,3 @@ const onDeleteTask = async () => {
     <p v-else class="font-extralight">No description...</p>
   </div>
 </template>
-
-<style scoped>
-.task {
-  min-width: 700px;
-}
-</style>

@@ -20,6 +20,11 @@
     "close": "Schließen",
     "no_description": "Keine Beschreibung..."
   },
+  "add_task": {
+    "title_placeholder": "Titel der Aufgabe...",
+    "due_date_placeholder": "Wann sollten Sie die Aufgabe beenden?...",
+    "description_placeholder": "Sagen Sie ein paar Worte zu der Aufgabe..."
+  },
   "status": {
     "completed": "Erledigt",
     "in_progress": "In Arbeit",

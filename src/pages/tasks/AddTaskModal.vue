@@ -17,7 +17,7 @@ const emit = defineEmits<Emits>()
 
 const title = ref<string>('')
 const description = ref<string>('')
-const dueDate = ref<string>(new Date().toISOString().slice(0, 10))
+const dueDate = ref<string>('')
 const { addTask } = useClient()
 
 const isButtonDisabled = computed(() => {
@@ -37,7 +37,7 @@ const saveTask = async () => {
       <label class="block my-4">
         <span class="text-grey-700">{{ $t('task.title') }}</span>
         <input
-          placeholder="Title of the task..."
+          :placeholder="$t('add_task.title_placeholder')"
           class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
           type="text"
           v-model="title"
@@ -46,7 +46,7 @@ const saveTask = async () => {
       <label class="block my-4">
         <span class="text-grey-700">{{ $t('task.due_date') }}</span>
         <input
-          placeholder="When should you finish the task?..."
+          :placeholder="$t('add_task.due_date_placeholder')"
           class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
           type="date"
           :min="new Date().toISOString().slice(0, 10)"
@@ -56,7 +56,7 @@ const saveTask = async () => {
       <label class="block my-4">
         <span class="text-grey-700">{{ $t('task.description') }}</span>
         <textarea
-          placeholder="Say some words about the task..."
+          :placeholder="$t('add_task.description_placeholder')"
           class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
           type="date"
           rows="4"
