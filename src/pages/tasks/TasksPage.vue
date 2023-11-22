@@ -40,6 +40,6 @@ const loadTasks = async () => (tasks.value = await getTasks(filter.value, sort.v
 
 <style scoped>
 .tasks {
-  max-width: 700px;
+  max-width: 800px;
 }
 </style>
